@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Video Juegos.sln"
+    "dotnet.defaultSolution": "Proyecto_vd_2.sln"
 }
