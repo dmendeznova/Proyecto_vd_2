@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class LogicaPersonaje1 : MonoBehaviour
 {
     public float velocidadMovimiento = 5.0f;
@@ -20,6 +22,12 @@ public class LogicaPersonaje1 : MonoBehaviour
 
     public bool conArma;
 
+    [Header("efecto de sonido")]
+    [SerializeField] private GameObject oSaltoPLayer;
+
+    private AudioSource sAudioPlayer;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +36,13 @@ public class LogicaPersonaje1 : MonoBehaviour
 
         velocidadInicial = velocidadMovimiento;
         velocidadAgachado = velocidadMovimiento * 0.5f;
+        sAudioPlayer = oSaltoPLayer.GetComponent<AudioSource>();
+
+       
+
+       
+        
+        
 
     }
 
@@ -84,7 +99,8 @@ public class LogicaPersonaje1 : MonoBehaviour
         anim.SetFloat("VelY", y);
 
         if(puedoSaltar==true)
-        {
+        {   
+            
             if(!estoyAtacando)
             {
                 if(Input.GetKeyDown(KeyCode.Space))
@@ -137,4 +153,15 @@ public class LogicaPersonaje1 : MonoBehaviour
     {
         avanzoSolo = false;
     }
+
+    public void Salto()
+    {
+        if(puedoSaltar == true)
+        {
+            sAudioPlayer.Play();
+        }
+    }
+
+
+    
 }
